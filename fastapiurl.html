@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URL Shortener — Reports</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0a0f;--surface:#12121a;--surface2:#1a1a25;--border:#2a2a3a;--text:#e4e4ec;--text2:#8888a0;--accent:#6c5ce7;--accent2:#a29bfe;--cyan:#00cec9;--radius:12px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+.container{max-width:960px;margin:0 auto;padding:40px 20px}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.top a{color:var(--text2);text-decoration:none;font-size:.9rem}
+.top a:hover{color:var(--accent2)}
+.icon-box{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:4px}
+h1{font-size:1.8rem;font-weight:700;margin-bottom:4px}
+.desc{color:var(--text2);margin-bottom:30px;font-size:.95rem}
+table{width:100%;border-collapse:collapse;background:var(--surface);border-radius:var(--radius);overflow:hidden}
+th{background:var(--surface2);text-align:left;padding:12px 16px;font-size:.85rem;font-weight:600;color:var(--text2)}
+td{padding:12px 16px;border-top:1px solid var(--border);font-size:.9rem}
+tr:hover td{background:var(--surface2)}
+.num{width:44px;color:var(--accent2);font-weight:600;font-size:.85rem}
+.links{text-align:right;white-space:nowrap}
+.links a{display:inline-block;padding:4px 12px;border-radius:4px;font-size:.78rem;text-decoration:none;margin-left:6px;font-weight:500;transition:all .2s}
+.links .pdf{background:rgba(108,92,231,.2);color:var(--accent2)}
+.links .pdf:hover{background:var(--accent);color:#fff}
+.links .md{background:rgba(0,206,201,.15);color:var(--cyan)}
+.links .md:hover{background:var(--cyan);color:#000}
+footer{text-align:center;padding:30px;color:var(--text2);font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="top"><a href="index.html">&larr; All projects</a></div>
+  <div class="icon-box" style="background:#6c5ce722;color:#6c5ce7">🔗</div>
+  <h1>URL Shortener</h1>
+  <div class="desc">FastAPI URL shortener with SQLite, click tracking, multi-format responses.</div>
+  <table>
+    <tr><th>#</th><th>Report</th><th>Links</th></tr>
+    <tr>
+          <td class="num">01</td>
+          <td>Project Overview</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/01_project_overview.pdf">PDF</a>
+            <a class="md" href="fastapiurl/01_project_overview.md">MD</a>
+          </td>
+        </tr>
+<tr>
+          <td class="num">02</td>
+          <td>Architecture Analysis</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/02_architecture_analysis.pdf">PDF</a>
+            <a class="md" href="fastapiurl/02_architecture_analysis.md">MD</a>
+          </td>
+        </tr>
+<tr>
+          <td class="num">03</td>
+          <td>API Endpoints</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/03_api_endpoints.pdf">PDF</a>
+            <a class="md" href="fastapiurl/03_api_endpoints.md">MD</a>
+          </td>
+        </tr>
+<tr>
+          <td class="num">04</td>
+          <td>Database Schema</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/04_database_schema.pdf">PDF</a>
+            <a class="md" href="fastapiurl/04_database_schema.md">MD</a>
+          </td>
+        </tr>
+<tr>
+          <td class="num">05</td>
+          <td>Tech Stack &amp; Dependencies</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/05_tech_stack_and_dependencies.pdf">PDF</a>
+            <a class="md" href="fastapiurl/05_tech_stack_and_dependencies.md">MD</a>
+          </td>
+        </tr>
+<tr>
+          <td class="num">06</td>
+          <td>Authentication &amp; Authorization</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/06_authentication_and_authorization.pdf">PDF</a>
+            <a class="md" href="fastapiurl/06_authentication_and_authorization.md">MD</a>
+          </td>
+        </tr>
+<tr>
+          <td class="num">07</td>
+          <td>Frontend Analysis</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/07_frontend_analysis.pdf">PDF</a>
+            <a class="md" href="fastapiurl/07_frontend_analysis.md">MD</a>
+          </td>
+        </tr>
+<tr>
+          <td class="num">08</td>
+          <td>Configuration &amp; Environment</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/08_configuration_and_environment.pdf">PDF</a>
+            <a class="md" href="fastapiurl/08_configuration_and_environment.md">MD</a>
+          </td>
+        </tr>
+<tr>
+          <td class="num">09</td>
+          <td>Security Audit</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/09_security_audit.pdf">PDF</a>
+            <a class="md" href="fastapiurl/09_security_audit.md">MD</a>
+          </td>
+        </tr>
+<tr>
+          <td class="num">10</td>
+          <td>Performance Analysis</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/10_performance_analysis.pdf">PDF</a>
+            <a class="md" href="fastapiurl/10_performance_analysis.md">MD</a>
+          </td>
+        </tr>
+<tr>
+          <td class="num">11</td>
+          <td>Code Quality Assessment</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/11_code_quality_assessment.pdf">PDF</a>
+            <a class="md" href="fastapiurl/11_code_quality_assessment.md">MD</a>
+          </td>
+        </tr>
+<tr>
+          <td class="num">12</td>
+          <td>Test Coverage Report</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/12_test_coverage_report.pdf">PDF</a>
+            <a class="md" href="fastapiurl/12_test_coverage_report.md">MD</a>
+          </td>
+        </tr>
+<tr>
+          <td class="num">13</td>
+          <td>Deployment Guide</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/13_deployment_guide.pdf">PDF</a>
+            <a class="md" href="fastapiurl/13_deployment_guide.md">MD</a>
+          </td>
+        </tr>
+<tr>
+          <td class="num">14</td>
+          <td>Error Handling Review</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/14_error_handling_review.pdf">PDF</a>
+            <a class="md" href="fastapiurl/14_error_handling_review.md">MD</a>
+          </td>
+        </tr>
+<tr>
+          <td class="num">15</td>
+          <td>Data Flow Analysis</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/15_data_flow_analysis.pdf">PDF</a>
+            <a class="md" href="fastapiurl/15_data_flow_analysis.md">MD</a>
+          </td>
+        </tr>
+<tr>
+          <td class="num">16</td>
+          <td>Module Dependencies</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/16_module_dependencies.pdf">PDF</a>
+            <a class="md" href="fastapiurl/16_module_dependencies.md">MD</a>
+          </td>
+        </tr>
+<tr>
+          <td class="num">17</td>
+          <td>Integration Points</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/17_integration_points.pdf">PDF</a>
+            <a class="md" href="fastapiurl/17_integration_points.md">MD</a>
+          </td>
+        </tr>
+<tr>
+          <td class="num">18</td>
+          <td>Known Issues &amp; Bugs</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/18_known_issues_and_bugs.pdf">PDF</a>
+            <a class="md" href="fastapiurl/18_known_issues_and_bugs.md">MD</a>
+          </td>
+        </tr>
+<tr>
+          <td class="num">19</td>
+          <td>Improvement Recommendations</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/19_improvement_recommendations.pdf">PDF</a>
+            <a class="md" href="fastapiurl/19_improvement_recommendations.md">MD</a>
+          </td>
+        </tr>
+<tr>
+          <td class="num">20</td>
+          <td>Changelog &amp; History</td>
+          <td class="links">
+            <a class="pdf" href="fastapiurl/20_changelog_and_history.pdf">PDF</a>
+            <a class="md" href="fastapiurl/20_changelog_and_history.md">MD</a>
+          </td>
+        </tr>
+
+  </table>
+</div>
+<footer>Generated May 29, 2026</footer>
+</body>
+</html>
