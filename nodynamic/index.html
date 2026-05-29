@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Reports — Static Version</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0a0f;--surface:#12121a;--surface2:#1a1a25;--border:#2a2a3a;--text:#e4e4ec;--text2:#8888a0;--accent:#6c5ce7;--accent2:#a29bfe;--grad:linear-gradient(135deg,#6c5ce7,#a29bfe);--radius:12px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
+.header{text-align:center;padding:60px 20px 40px;background:linear-gradient(180deg,var(--surface),transparent)}
+.header h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;color:#fff;margin-bottom:4px}
+.header p{color:var(--text2);font-size:1.1rem}
+.header .badge{display:inline-block;margin-top:16px;padding:6px 16px;border-radius:20px;background:var(--surface2);border:1px solid var(--border);font-size:.85rem;color:var(--text2)}
+.header .dynamic-link{margin-top:12px;font-size:.85rem;color:var(--text2)}
+.header .dynamic-link a{color:var(--accent2);text-decoration:none}
+.header .dynamic-link a:hover{text-decoration:underline}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;padding:20px 0 60px}
+.card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-decoration:none;color:inherit;transition:all .3s}
+.card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 12px 40px rgba(108,92,231,.15);color:inherit}
+.card .icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:16px}
+.card h3{font-size:1.1rem;font-weight:600;margin-bottom:6px}
+.card .desc{color:var(--text2);font-size:.9rem;line-height:1.5}
+.card .count{margin-top:12px;font-size:.8rem;color:var(--accent2);font-weight:500}
+footer{text-align:center;padding:30px;color:var(--text2);font-size:.85rem}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Portfolio Reports</h1>
+  <p>Static version &mdash; fully readable by AI crawlers</p>
+  <div class="badge">7 projects &middot; 20 reports each &middot; PDF + Markdown</div>
+  <div class="dynamic-link"><a href="../">Dynamic version &rarr;</a></div>
+</div>
+<div class="container"><div class="grid"><a href="cv-maker.html" class="card">
+      <div class="icon" style="background:#fd79a822;color:#fd79a8">📄</div>
+      <h3>CV Maker</h3>
+      <div class="desc">Full-stack CV builder with job scraping, React/Svelte frontends, and PDF generation.</div>
+    </a>
+<a href="python-portfolio.html" class="card">
+      <div class="icon" style="background:#6c5ce722;color:#6c5ce7">🔥</div>
+      <h3>Python Portfolio</h3>
+      <div class="desc">Unified FastAPI API combining URL shortener, blog, chat, queue, and RAG.</div>
+    </a>
+<a href="portfolio-daemon.html" class="card">
+      <div class="icon" style="background:#00cec922;color:#00cec9">🤖</div>
+      <h3>Portfolio Daemon</h3>
+      <div class="desc">Background daemon managing backend services with SSH tunnels.</div>
+    </a>
+<a href="fastapiurl.html" class="card">
+      <div class="icon" style="background:#6c5ce722;color:#6c5ce7">🔗</div>
+      <h3>URL Shortener</h3>
+      <div class="desc">FastAPI URL shortener with SQLite, click tracking, multi-format responses.</div>
+    </a>
+<a href="graphql-blog.html" class="card">
+      <div class="icon" style="background:#a29bfe22;color:#a29bfe">📝</div>
+      <h3>GraphQL Blog</h3>
+      <div class="desc">GraphQL blog with Strawberry, PostgreSQL, and full CRUD.</div>
+    </a>
+<a href="WebBartosz.html" class="card">
+      <div class="icon" style="background:#fd79a822;color:#fd79a8">🏠</div>
+      <h3>WebBartosz</h3>
+      <div class="desc">Minimal portfolio website built with Vite vanilla JS.</div>
+    </a>
+<a href="ai-chat-proxy.html" class="card">
+      <div class="icon" style="background:#00cec922;color:#00cec9">💬</div>
+      <h3>AI Chat Proxy</h3>
+      <div class="desc">OpenAI API proxy server for chat completions.</div>
+    </a>
+</div></div>
+<footer>Generated May 29, 2026 &middot; <a href="../" style="color:var(--accent2);text-decoration:none">Dynamic version</a></footer>
+</body>
+</html>

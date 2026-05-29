@@ -8,66 +8,175 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#0a0a0f;--surface:#12121a;--surface2:#1a1a25;--border:#2a2a3a;--text:#e4e4ec;--text2:#8888a0;--accent:#6c5ce7;--accent2:#a29bfe;--grad:linear-gradient(135deg,#6c5ce7,#a29bfe);--radius:12px}
+:root{--bg:#0a0a0f;--surface:#12121a;--surface2:#1a1a25;--border:#2a2a3a;--text:#e4e4ec;--text2:#8888a0;--accent:#6c5ce7;--accent2:#a29bfe;--cyan:#00cec9;--pink:#fd79a8;--grad:linear-gradient(135deg,#6c5ce7,#a29bfe);--radius:12px}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
 .header{text-align:center;padding:60px 20px 40px;background:linear-gradient(180deg,var(--surface),transparent)}
 .header h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .header p{color:var(--text2);font-size:1.1rem;margin-top:8px}
 .header .badge{display:inline-block;margin-top:16px;padding:6px 16px;border-radius:20px;background:var(--surface2);border:1px solid var(--border);font-size:.85rem;color:var(--text2)}
+.header .static-link{margin-top:12px;font-size:.85rem;color:var(--text2)}
+.header .static-link a{color:var(--accent2);text-decoration:none}
+.header .static-link a:hover{text-decoration:underline}
 .container{max-width:1200px;margin:0 auto;padding:0 20px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;padding:20px 0 60px}
-.card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-decoration:none;color:inherit;transition:all .3s;position:relative;overflow:hidden}
-.card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 12px 40px rgba(108,92,231,.15);color:inherit}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:all .3s;position:relative;overflow:hidden;cursor:pointer}
+.card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 12px 40px rgba(108,92,231,.15)}
 .card .icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:16px}
 .card h3{font-size:1.1rem;font-weight:600;margin-bottom:6px}
-.card .desc{color:var(--text2);font-size:.9rem;line-height:1.5}
-.card .count{margin-top:12px;font-size:.8rem;color:var(--accent2);font-weight:500}
+.card .desc{color:var(--text2);font-size:.9rem;margin-bottom:14px;line-height:1.5}
+.card .tech{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.card .tech span{padding:2px 8px;border-radius:4px;background:var(--surface2);font-size:.75rem;color:var(--text2)}
+.card .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:8px;font-size:.85rem;font-weight:500;color:#fff;background:var(--grad);text-decoration:none;transition:opacity .2s}
+.card .btn:hover{opacity:.85}
+.report-list{display:none;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;padding:40px 0}
+.report-list.active{display:grid}
+.report-item{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;transition:all .2s}
+.report-item:hover{background:var(--surface);border-color:var(--accent)}
+.report-item .num{width:32px;height:32px;border-radius:6px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:600;color:var(--accent2);flex-shrink:0}
+.report-item .info{flex:1;margin-left:14px}
+.report-item .info h4{font-size:.9rem;font-weight:500}
+.report-item .info p{font-size:.78rem;color:var(--text2)}
+.report-item .links{display:flex;gap:6px}
+.report-item .links a{padding:4px 10px;border-radius:4px;font-size:.75rem;text-decoration:none;transition:all .2s}
+.report-item .links .pdf{background:rgba(108,92,231,.2);color:var(--accent2)}
+.report-item .links .pdf:hover{background:var(--accent);color:#fff}
+.report-item .links .md{background:rgba(0,206,201,.15);color:var(--cyan)}
+.report-item .links .md:hover{background:var(--cyan);color:#000}
+.back{display:inline-flex;align-items:center;gap:6px;color:var(--text2);text-decoration:none;font-size:.9rem;margin-bottom:20px;cursor:pointer;transition:color .2s;border:none;background:none;font-family:inherit}
+.back:hover{color:var(--accent2)}
+.reports-header{display:none;padding:30px 0 10px}
+.reports-header.active{display:block}
+.reports-header h2{font-size:1.8rem;font-weight:700}
+.reports-header .sub{color:var(--text2);font-size:.95rem}
 footer{text-align:center;padding:30px;color:var(--text2);font-size:.85rem}
+.reports-header .static-link{display:inline-block;margin-top:8px;font-size:.85rem}
+.reports-header .static-link a{color:var(--accent2);text-decoration:none}
+.reports-header .static-link a:hover{text-decoration:underline}
 @media(max-width:640px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+
 <div class="header">
   <h1>Portfolio Reports</h1>
   <p>140 reports across 7 projects &mdash; AI-generated analysis</p>
   <div class="badge">7 projects &middot; 20 reports each &middot; PDF + Markdown</div>
+  <div class="static-link">Need AI-readable version? <a href="nodynamic/">Static version &rarr;</a></div>
 </div>
-<div class="container"><div class="grid"><a href="cv-maker.html" class="card">
-      <div class="icon" style="background:#fd79a822;color:#fd79a8">📄</div>
-      <h3>CV Maker</h3>
-      <div class="desc">Full-stack CV builder with job scraping, React/Svelte frontends, and PDF generation.</div>
-    </a>
-<a href="python-portfolio.html" class="card">
-      <div class="icon" style="background:#6c5ce722;color:#6c5ce7">🔥</div>
-      <h3>Python Portfolio</h3>
-      <div class="desc">Unified FastAPI API combining URL shortener, blog, chat, queue, and RAG.</div>
-    </a>
-<a href="portfolio-daemon.html" class="card">
-      <div class="icon" style="background:#00cec922;color:#00cec9">🤖</div>
-      <h3>Portfolio Daemon</h3>
-      <div class="desc">Background daemon managing backend services with SSH tunnels.</div>
-    </a>
-<a href="fastapiurl.html" class="card">
-      <div class="icon" style="background:#6c5ce722;color:#6c5ce7">🔗</div>
-      <h3>URL Shortener</h3>
-      <div class="desc">FastAPI URL shortener with SQLite, click tracking, multi-format responses.</div>
-    </a>
-<a href="graphql-blog.html" class="card">
-      <div class="icon" style="background:#a29bfe22;color:#a29bfe">📝</div>
-      <h3>GraphQL Blog</h3>
-      <div class="desc">GraphQL blog with Strawberry, PostgreSQL, and full CRUD.</div>
-    </a>
-<a href="WebBartosz.html" class="card">
-      <div class="icon" style="background:#fd79a822;color:#fd79a8">🏠</div>
-      <h3>WebBartosz</h3>
-      <div class="desc">Minimal portfolio website built with Vite vanilla JS.</div>
-    </a>
-<a href="ai-chat-proxy.html" class="card">
-      <div class="icon" style="background:#00cec922;color:#00cec9">💬</div>
-      <h3>AI Chat Proxy</h3>
-      <div class="desc">OpenAI API proxy server for chat completions.</div>
-    </a>
-</div></div>
-<footer>Generated May 29, 2026</footer>
+
+<div class="container">
+  <div id="grid" class="grid"></div>
+
+  <div id="reportsHeader" class="reports-header">
+    <button class="back" onclick="showGrid()">&larr; All projects</button>
+    <h2 id="projectTitle"></h2>
+    <p class="sub" id="projectSub"></p>
+    <div class="static-link"><a id="staticLink" href="#">Static version of this project &rarr;</a></div>
+  </div>
+  <div id="reportList" class="report-list"></div>
+</div>
+
+<footer>Generated May 29, 2026 &middot; <a href="nodynamic/" style="color:var(--accent2);text-decoration:none">Static version</a></footer>
+
+<script>
+const projects = [
+  {id:"cv-maker",icon:"\u{1F4C4}",name:"CV Maker",color:"#fd79a8",
+   desc:"Full-stack CV builder with job scraping, React/Svelte frontends, and PDF generation.",
+   tech:["FastAPI","React","Svelte","PostgreSQL","Playwright"]},
+  {id:"python-portfolio",icon:"\u{1F525}",name:"Python Portfolio",color:"#6c5ce7",
+   desc:"Unified FastAPI API combining URL shortener, blog, chat, queue, and RAG modules.",
+   tech:["FastAPI","SQLAlchemy","SQLite","JWT","OpenAI"]},
+  {id:"portfolio-daemon",icon:"\u{1F916}",name:"Portfolio Daemon",color:"#00cec9",
+   desc:"Background daemon managing multiple backend services with SSH tunnels.",
+   tech:["Python","asyncio","asyncssh","httpx"]},
+  {id:"fastapiurl",icon:"\u{1F517}",name:"URL Shortener",color:"#6c5ce7",
+   desc:"FastAPI-based URL shortener with SQLite, click tracking, and multi-format responses.",
+   tech:["FastAPI","SQLite","SQLAlchemy","Pydantic"]},
+  {id:"graphql-blog",icon:"\u{1F4DD}",name:"GraphQL Blog",color:"#a29bfe",
+   desc:"GraphQL-powered blog with Strawberry, SQLAlchemy, PostgreSQL, and full CRUD.",
+   tech:["FastAPI","Strawberry","GraphQL","PostgreSQL"]},
+  {id:"WebBartosz",icon:"\u{1F3E0}",name:"WebBartosz",color:"#fd79a8",
+   desc:"Minimal personal portfolio website built with Vite vanilla JS.",
+   tech:["Vite","JavaScript","CSS3","HTML5"]},
+  {id:"ai-chat-proxy",icon:"\u{1F4AC}",name:"AI Chat Proxy",color:"#00cec9",
+   desc:"Minimal OpenAI API proxy server for chat completions.",
+   tech:["Node.js","Express","OpenAI"]}
+];
+
+const reports = [
+  ["Project Overview","project_overview"],
+  ["Architecture Analysis","architecture_analysis"],
+  ["API Endpoints","api_endpoints"],
+  ["Database Schema","database_schema"],
+  ["Tech Stack &amp; Dependencies","tech_stack_and_dependencies"],
+  ["Authentication &amp; Authorization","authentication_and_authorization"],
+  ["Frontend Analysis","frontend_analysis"],
+  ["Configuration &amp; Environment","configuration_and_environment"],
+  ["Security Audit","security_audit"],
+  ["Performance Analysis","performance_analysis"],
+  ["Code Quality Assessment","code_quality_assessment"],
+  ["Test Coverage Report","test_coverage_report"],
+  ["Deployment Guide","deployment_guide"],
+  ["Error Handling Review","error_handling_review"],
+  ["Data Flow Analysis","data_flow_analysis"],
+  ["Module Dependencies","module_dependencies"],
+  ["Integration Points","integration_points"],
+  ["Known Issues &amp; Bugs","known_issues_and_bugs"],
+  ["Improvement Recommendations","improvement_recommendations"],
+  ["Changelog &amp; History","changelog_and_history"]
+];
+
+function showGrid(){
+  document.getElementById("grid").style.display="grid";
+  document.getElementById("reportsHeader").classList.remove("active");
+  document.getElementById("reportList").classList.remove("active");
+  document.getElementById("reportList").style.display="none";
+}
+
+function showReports(id){
+  const proj=projects.find(p=>p.id===id);
+  if(!proj)return;
+  document.getElementById("grid").style.display="none";
+  document.getElementById("reportsHeader").classList.add("active");
+  document.getElementById("projectTitle").textContent=proj.icon+" "+proj.name;
+  document.getElementById("projectSub").textContent=proj.desc;
+  document.getElementById("staticLink").href="nodynamic/"+proj.id+".html";
+
+  const list=document.getElementById("reportList");
+  list.innerHTML="";
+  list.classList.add("active");
+  list.style.display="grid";
+
+  for(let i=1;i<=20;i++){
+    const num=i.toString().padStart(2,"0");
+    const [title,slug]=reports[i-1];
+    const item=document.createElement("div");
+    item.className="report-item";
+    item.innerHTML=`
+      <div class="num" style="background:${proj.color}22;color:${proj.color}">${num}</div>
+      <div class="info"><h4>${title}</h4><p>Report ${i}/20</p></div>
+      <div class="links">
+        <a class="pdf" href="${proj.id}/${num}_${slug}.pdf">PDF</a>
+        <a class="md" href="${proj.id}/${num}_${slug}.md">MD</a>
+      </div>`;
+    list.appendChild(item);
+  }
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+const grid=document.getElementById("grid");
+projects.forEach((p,i)=>{
+  const card=document.createElement("div");
+  card.className="card";
+  card.onclick=()=>showReports(p.id);
+  card.innerHTML=`
+    <div class="icon" style="background:${p.color}22;color:${p.color}">${p.icon}</div>
+    <h3>${p.name}</h3>
+    <div class="desc">${p.desc}</div>
+    <div class="tech">${p.tech.map(t=>`<span>${t}</span>`).join("")}</div>
+    <a class="btn" onclick="event.stopPropagation();showReports('${p.id}')" href="#">View 20 reports &rarr;</a>`;
+  grid.appendChild(card);
+});
+</script>
 </body>
 </html>
