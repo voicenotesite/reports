@@ -59,8 +59,8 @@ footer{text-align:center;padding:30px;color:var(--text2);font-size:.85rem}
 
 <div class="header">
   <h1>Portfolio Reports</h1>
-  <p>140 reports across 7 projects &mdash; AI-generated analysis</p>
-  <div class="badge">7 projects &middot; 20 reports each &middot; PDF + Markdown</div>
+  <p>141 reports across 7 projects + session report &mdash; AI-generated analysis</p>
+  <div class="badge">7 projects &middot; 20 reports each &middot; 1 session report &middot; PDF + Markdown</div>
   <div class="static-link">Need AI-readable version? <a href="nodynamic/">Static version &rarr;</a></div>
 </div>
 
@@ -100,7 +100,10 @@ const projects = [
    tech:["Vite","JavaScript","CSS3","HTML5"]},
   {id:"ai-chat-proxy",icon:"\u{1F4AC}",name:"AI Chat Proxy",color:"#00cec9",
    desc:"Minimal OpenAI API proxy server for chat completions.",
-   tech:["Node.js","Express","OpenAI"]}
+   tech:["Node.js","Express","OpenAI"]},
+  {id:"session-report",icon:"\u{1F4CA}",name:"Session Report",color:"#fdcb6e",
+   desc:"Deployment report covering frontends, Render backends, and all work after initial report generation.",
+   tech:["HTML","CSS","Markdown"]}
 ];
 
 const reports = [
@@ -147,19 +150,32 @@ function showReports(id){
   list.classList.add("active");
   list.style.display="grid";
 
-  for(let i=1;i<=20;i++){
-    const num=i.toString().padStart(2,"0");
-    const [title,slug]=reports[i-1];
+  if(id==="session-report"){
     const item=document.createElement("div");
     item.className="report-item";
     item.innerHTML=`
-      <div class="num" style="background:${proj.color}22;color:${proj.color}">${num}</div>
-      <div class="info"><h4>${title}</h4><p>Report ${i}/20</p></div>
+      <div class="num" style="background:#fdcb6e22;color:#fdcb6e">01</div>
+      <div class="info"><h4>Session Report — Deployments &amp; Frontends</h4><p>Full deployment report</p></div>
       <div class="links">
-        <a class="pdf" href="${proj.id}/${num}_${slug}.pdf">PDF</a>
-        <a class="md" href="${proj.id}/${num}_${slug}.md">MD</a>
+        <a class="pdf" href="session-report.pdf">PDF</a>
+        <a class="md" href="session-report.md">MD</a>
       </div>`;
     list.appendChild(item);
+  } else {
+    for(let i=1;i<=20;i++){
+      const num=i.toString().padStart(2,"0");
+      const [title,slug]=reports[i-1];
+      const item=document.createElement("div");
+      item.className="report-item";
+      item.innerHTML=`
+        <div class="num" style="background:${proj.color}22;color:${proj.color}">${num}</div>
+        <div class="info"><h4>${title}</h4><p>Report ${i}/20</p></div>
+        <div class="links">
+          <a class="pdf" href="${proj.id}/${num}_${slug}.pdf">PDF</a>
+          <a class="md" href="${proj.id}/${num}_${slug}.md">MD</a>
+        </div>`;
+      list.appendChild(item);
+    }
   }
   window.scrollTo({top:0,behavior:"smooth"});
 }
