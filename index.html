@@ -134,6 +134,7 @@ function showGrid(){
   document.getElementById("reportsHeader").classList.remove("active");
   document.getElementById("reportList").classList.remove("active");
   document.getElementById("reportList").style.display="none";
+  history.replaceState(null,'',window.location.pathname);
 }
 
 function showReports(id){
@@ -178,6 +179,7 @@ function showReports(id){
     }
   }
   window.scrollTo({top:0,behavior:"smooth"});
+  history.replaceState(null,'','#'+id);
 }
 
 const grid=document.getElementById("grid");
@@ -193,6 +195,14 @@ projects.forEach((p,i)=>{
     <a class="btn" onclick="event.stopPropagation();showReports('${p.id}')" href="#">View 20 reports &rarr;</a>`;
   grid.appendChild(card);
 });
+
+/* ─── Hash routing ─── */
+function routeHash(){
+  const id = window.location.hash.slice(1);
+  if (id && projects.some(p => p.id === id)) showReports(id);
+}
+window.addEventListener('hashchange', routeHash);
+routeHash();
 </script>
 </body>
 </html>
