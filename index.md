@@ -1,9 +1,15 @@
 # Portfolio Reports Index
 
 **Generated:** May 29, 2026
-**Total:** 140 reports across 7 projects (20 each)
+**Total:** 280+ reports across 8 categories
 
 ---
+
+## [Ogólne](./ogolne/)
+Raporty przekrojowe dla całego portfolio.
+| # | Report |
+|---|--------|
+| 01 | [Raport Testów](./ogolne/01_raport_testow.md) |
 
 ## [CV Maker](./cv-maker/)
 Full-stack CV builder with job scraping, React/Svelte frontends, PDF generation.
